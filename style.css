@@ -358,8 +358,8 @@ section:hover {
 #skills {
   background: linear-gradient(
     135deg,
-    rgba(59, 130, 246, 0.1),
-    rgba(139, 92, 246, 0.1)
+    rgba(16, 185, 129, 0.1),
+    rgba(245, 158, 11, 0.1)
   );
   border-left: 4px solid var(--primary-color);
 }
@@ -576,8 +576,8 @@ section:hover {
 #interests {
   background: linear-gradient(
     135deg,
-    rgba(139, 92, 246, 0.1),
-    rgba(59, 130, 246, 0.1)
+    rgba(16, 185, 129, 0.1),
+    rgba(245, 158, 11, 0.1)
   );
   border-left: 4px solid var(--accent-color);
 }
@@ -628,6 +628,67 @@ section:hover {
   transform: translateY(-2px) scale(1) !important;
 }
 
+/* ===== CONTACT SECTION ===== */
+#contact {
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.1),
+    rgba(245, 158, 11, 0.1)
+  );
+  border-left: 4px solid var(--text-dark);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color var(--animation-speed) ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+button[type="submit"] {
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--animation-speed) var(--ease-out-back);
+  box-shadow: var(--shadow-light);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
 /* ===== COMMON HEADING STYLES ===== */
 .job h3,
 .education-item h3,
@@ -665,6 +726,91 @@ section,
   will-change: transform;
   backface-visibility: hidden;
   perspective: 1000px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  header {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+
+  #profile-section h1 {
+    font-size: 2.5rem;
+  }
+
+  #profile-section p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .social-links {
+    gap: 1rem;
+  }
+
+  main {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  #interests ul {
+    grid-template-columns: 1fr;
+  }
+
+  .soft-skill-badges span {
+    display: block;
+    margin: 0.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  #profile-section h1 {
+    font-size: 2rem;
+  }
+
+  #profile-section p {
+    font-size: 0.9rem;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .social-links a {
+    padding: 0.6rem;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+  }
+
+  .material-symbols-outlined.icon {
+    font-size: 20px;
+  }
+
+  section {
+    padding: 0.75rem;
+  }
+
+  .job,
+  .education-item,
+  .certification,
+  .skill-category,
+  .language-item {
+    padding: 1rem;
+  }
+
+  #interests li {
+    padding: 1rem;
+    font-size: 1rem;
+  }
 }
 
 /* ===== ACCESSIBILITY ===== */
