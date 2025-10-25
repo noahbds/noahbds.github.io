@@ -183,6 +183,12 @@
       .slide-in-right {
         animation: slideInRight 0.6s ease forwards;
       }
+      @keyframes ripple {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
     `;
     document.head.appendChild(style);
   };
@@ -318,6 +324,120 @@
     });
   };
 
+  const initProjectCards = () => {
+    const projectCards = document.querySelectorAll(".project-card");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    if (!projectCards.length) return;
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        projectCards.forEach((card) => {
+          const techBadges = card.querySelectorAll(".tech-badge");
+          const techStack = Array.from(techBadges).map((badge) =>
+            badge.textContent.toLowerCase().replace(/\s+/g, "")
+          );
+
+          if (
+            filter === "all" ||
+            techStack.some((tech) => tech.includes(filter.toLowerCase()))
+          ) {
+            card.style.display = "block";
+            setTimeout(() => {
+              card.style.opacity = "1";
+              card.style.transform = "scale(1)";
+            }, 10);
+          } else {
+            card.style.opacity = "0";
+            card.style.transform = "scale(0.8)";
+            setTimeout(() => {
+              card.style.display = "none";
+            }, 300);
+          }
+        });
+      });
+    });
+
+    projectCards.forEach((card, index) => {
+      const techBadges = card.querySelectorAll(".tech-badge");
+      techBadges.forEach((badge) => {
+        const tech = badge.textContent.toLowerCase().replace(/\s+/g, "");
+        badge.setAttribute("data-tech", tech);
+      });
+
+      card.style.opacity = "0";
+      card.style.transform = "translateY(30px) scale(0.9)";
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.target.style.display !== "none") {
+              setTimeout(() => {
+                entry.target.style.transition = "all 0.6s ease";
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0) scale(1)";
+              }, index * 150);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(card);
+
+      const projectIcon = card.querySelector(".project-icon");
+      const features = card.querySelectorAll(".feature");
+
+      card.addEventListener("mouseenter", () => {
+        features.forEach((feature, i) => {
+          setTimeout(() => {
+            feature.style.transform = "translateX(5px)";
+            feature.style.opacity = "0.8";
+          }, i * 50);
+        });
+      });
+
+      card.addEventListener("mouseleave", () => {
+        features.forEach((feature) => {
+          feature.style.transform = "translateX(0)";
+          feature.style.opacity = "1";
+        });
+      });
+
+      const buttons = card.querySelectorAll(".btn-primary, .btn-secondary");
+      buttons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          const ripple = document.createElement("span");
+          ripple.style.position = "absolute";
+          ripple.style.borderRadius = "50%";
+          ripple.style.background = "rgba(255, 255, 255, 0.6)";
+          ripple.style.transform = "scale(0)";
+          ripple.style.animation = "ripple 0.6s linear";
+          ripple.style.left = "50%";
+          ripple.style.top = "50%";
+          ripple.style.width = "20px";
+          ripple.style.height = "20px";
+          ripple.style.marginLeft = "-10px";
+          ripple.style.marginTop = "-10px";
+          ripple.style.pointerEvents = "none";
+
+          button.style.position = "relative";
+          button.style.overflow = "hidden";
+          button.appendChild(ripple);
+
+          setTimeout(() => {
+            ripple.remove();
+          }, 600);
+        });
+      });
+    });
+  };
+
   const initializeApp = () => {
     addAnimationCSS();
     initSections();
@@ -326,6 +446,7 @@
     initScrollToTop();
     initFormValidation();
     initKeyboardNav();
+    initProjectCards();
 
     stagger(
       document.querySelectorAll("#soft-skills .soft-skill-badges span"),

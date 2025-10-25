@@ -1,0 +1,114 @@
+/* ===== SKILLS COMPONENTS ===== */
+.skill-category {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  transition: all var(--animation-speed) ease;
+  will-change: transform, background;
+}
+
+.skill-category:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.2),
+    rgba(139, 92, 246, 0.2)
+  );
+  transform: translateX(5px) scale(1.01) !important;
+  border-left: 4px solid var(--primary-color);
+  box-shadow: var(--shadow-medium);
+}
+
+.soft-skill-badges {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  transition: all var(--animation-speed) ease;
+  will-change: transform, background;
+}
+
+.soft-skill-badges:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.2),
+    rgba(139, 92, 246, 0.2)
+  );
+  transform: translateX(5px) scale(1.01) !important;
+  border-left: 4px solid var(--primary-color);
+  box-shadow: var(--shadow-medium);
+}
+
+.soft-skill-badges span {
+  display: inline-block;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  margin: 0.25rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-light);
+  transition: all var(--animation-speed) var(--ease-out-back);
+}
+
+.soft-skill-badges span:hover {
+  background: linear-gradient(
+    135deg,
+    var(--accent-color),
+    var(--success-color),
+    var(--warning-color),
+    var(--primary-color)
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-medium);
+}
+
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+.skill-item span {
+  font-weight: 600;
+  color: var(--text-dark);
+  flex: 1;
+}
+
+.progress-bar {
+  flex: 2;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-left: 1rem;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 4px;
+  transition: width 1.5s ease;
+  position: relative;
+}
+
+.progress-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}

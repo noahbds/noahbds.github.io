@@ -1,0 +1,317 @@
+/* ===== PROJECTS SECTION ===== */
+#projects {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 128, 246, 0.06),
+    rgba(16, 185, 129, 0.03)
+  );
+  border-left: 4px solid var(--accent-color3);
+  padding: 3rem 2rem;
+}
+
+.project-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--animation-speed) ease;
+  backdrop-filter: blur(10px);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.filter-btn.active {
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  border-color: transparent;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: var(--background-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--border-radius-large);
+  padding: 0;
+  box-shadow: var(--shadow-light);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--animation-speed) ease;
+  overflow: hidden;
+  position: relative;
+  will-change: transform, box-shadow;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--accent-color),
+    var(--accent-color3)
+  );
+  opacity: 0;
+  transition: opacity var(--animation-speed) ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-heavy), var(--shadow-glow);
+  border-color: rgba(30, 64, 175, 0.12);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0;
+  margin-bottom: 1rem;
+}
+
+.project-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-medium);
+  transition: all var(--animation-speed) ease;
+}
+
+.project-icon .material-symbols-outlined {
+  font-size: 28px;
+  color: white;
+}
+
+.project-card:hover .project-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: var(--shadow-heavy);
+}
+
+.project-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.completed {
+  background: linear-gradient(
+    45deg,
+    var(--success-color),
+    var(--accent-color2)
+  );
+  color: white;
+}
+
+.status-badge.in-progress {
+  background: linear-gradient(
+    45deg,
+    var(--warning-color),
+    var(--accent-color4)
+  );
+  color: white;
+}
+
+.project-content {
+  padding: 0 1.5rem;
+  flex: 1 1 auto;
+}
+
+.project-content h3 {
+  margin: 0 0 0.75rem 0;
+  color: var(--text-dark);
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.project-description {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.project-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-dark);
+}
+
+.feature .material-symbols-outlined {
+  color: var(--success-color);
+  font-size: 16px;
+}
+
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-badge {
+  background: linear-gradient(
+    45deg,
+    var(--accent-color2),
+    var(--accent-color3)
+  );
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 25px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all var(--animation-speed) ease;
+}
+
+.tech-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-light);
+}
+
+.project-stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), transparent);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.stat .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--primary-color);
+}
+
+.stat span:last-child {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  padding-top: 0;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all var(--animation-speed) ease;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  color: white;
+  box-shadow: var(--shadow-light);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-dark);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-primary .material-symbols-outlined,
+.btn-secondary .material-symbols-outlined {
+  font-size: 16px;
+}

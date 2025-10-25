@@ -53,6 +53,9 @@
         <div class="contact-info">
           <p>0782472418</p>
           <p>noah.eble@epitech.eu</p>
+          <a href="cv-noah-eble.pdf" download title="Download CV"
+            >Télécharger CV</a
+          >
         </div>
         <div class="social-links flex-row">
           <a
@@ -88,11 +91,11 @@
     </header>
 
     <main id="main">
-      <!-- Main navigation for quick section access (keyboard + screen reader friendly) -->
       <nav class="main-nav" aria-label="Main Navigation">
         <ul>
           <li><a href="#summary">Summary</a></li>
           <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#certifications">Certifications</a></li>
@@ -102,7 +105,7 @@
         </ul>
       </nav>
       <section id="summary">
-        <h2>Summary</h2>
+        <h2><span class="material-symbols-outlined">person</span> Summary</h2>
         <p>
           Étudiant en année préparatoire au Master of Science à Epitech
           (Promotion 236 - 2025-2028), je recherche une alternance de 33 mois en
@@ -121,14 +124,37 @@
       </section>
 
       <section id="skills">
-        <h2>Skills</h2>
+        <h2><span class="material-symbols-outlined">code</span> Skills</h2>
 
         <div id="hard-skills">
           <h3>Hard Skills</h3>
 
           <div class="skill-category">
             <h4>Programmation</h4>
-            <p>Python, Lua, HTML, CSS, JavaScript</p>
+            <div class="skill-item">
+              <span>Python</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span>Lua</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span>HTML/CSS</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span>JavaScript</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%"></div>
+              </div>
+            </div>
           </div>
 
           <div class="skill-category">
@@ -157,8 +183,246 @@
         </div>
       </section>
 
+      <section id="projects">
+        <h2><span class="material-symbols-outlined">work</span> Projects</h2>
+
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="lua">Lua</button>
+          <button class="filter-btn" data-filter="javascript">
+            JavaScript
+          </button>
+          <button class="filter-btn" data-filter="gamedev">Game Dev</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <span class="material-symbols-outlined">sports_esports</span>
+              </div>
+              <div class="project-status">
+                <span class="status-badge completed">Completed</span>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <h3>Rareload - Garry's Mod Addon</h3>
+              <p class="project-description">
+                A comprehensive Garry's Mod addon that allows players to save
+                and restore their position, inventory, ammo, health, and armor
+                after reloading or dying. Features an advanced anti-stuck system
+                with multiple resolution methods.
+              </p>
+
+              <div class="project-features">
+                <div class="feature">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  <span>Anti-stuck system</span>
+                </div>
+                <div class="feature">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  <span>Admin permissions</span>
+                </div>
+                <div class="feature">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  <span>Entity viewer</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-tech-stack">
+              <span class="tech-badge">Lua</span>
+              <span class="tech-badge">Game Dev</span>
+              <span class="tech-badge">Addon</span>
+            </div>
+
+            <div class="project-stats">
+              <div class="stat">
+                <span class="material-symbols-outlined">star</span>
+                <span>0</span>
+              </div>
+              <div class="stat">
+                <span class="material-symbols-outlined">fork_right</span>
+                <span>0</span>
+              </div>
+              <div class="stat">
+                <span class="material-symbols-outlined">code</span>
+                <span>Lua</span>
+              </div>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://github.com/noahbds/Rareload"
+                target="_blank"
+                rel="noopener"
+                class="btn-primary">
+                <span class="material-symbols-outlined">code</span>
+                View Code
+              </a>
+              <a
+                href="https://steamcommunity.com/sharedfiles/filedetails/?id=3172024928"
+                target="_blank"
+                rel="noopener"
+                class="btn-secondary">
+                <span class="material-symbols-outlined">launch</span>
+                Live Demo
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <span class="material-symbols-outlined">keyboard</span>
+              </div>
+              <div class="project-status">
+                <span class="status-badge completed">Completed</span>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <h3>Commands Keybinding</h3>
+              <p class="project-description">
+                A Garry's Mod addon that enables players to bind console
+                commands to keyboard keys for quick access and automation.
+                Simplifies complex command execution with customizable key
+                bindings.
+              </p>
+
+              <div class="project-features">
+                <div class="feature">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  <span>Custom key bindings</span>
+                </div>
+                <div class="feature">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  <span>Console commands</span>
+                </div>
+                <div class="feature">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  <span>Easy configuration</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-tech-stack">
+              <span class="tech-badge">Lua</span>
+              <span class="tech-badge">Game Dev</span>
+              <span class="tech-badge">Addon</span>
+            </div>
+
+            <div class="project-stats">
+              <div class="stat">
+                <span class="material-symbols-outlined">star</span>
+                <span>0</span>
+              </div>
+              <div class="stat">
+                <span class="material-symbols-outlined">fork_right</span>
+                <span>0</span>
+              </div>
+              <div class="stat">
+                <span class="material-symbols-outlined">code</span>
+                <span>Lua</span>
+              </div>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://github.com/noahbds/commands_keybinding"
+                target="_blank"
+                rel="noopener"
+                class="btn-primary">
+                <span class="material-symbols-outlined">code</span>
+                View Code
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <span class="material-symbols-outlined">extension</span>
+              </div>
+              <div class="project-status">
+                <span class="status-badge completed">Completed</span>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <h3>Crunchyroll Random Anime</h3>
+              <p class="project-description">
+                A browser extension for Chrome and Firefox that adds a 'Random
+                Anime' button to the Crunchyroll website, allowing users to
+                discover random anime series with a single click.
+              </p>
+
+              <div class="project-features">
+                <div class="feature">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  <span>Random discovery</span>
+                </div>
+                <div class="feature">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  <span>Cross-browser</span>
+                </div>
+                <div class="feature">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  <span>One-click access</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-tech-stack">
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">Web Ext</span>
+              <span class="tech-badge">Chrome</span>
+              <span class="tech-badge">Firefox</span>
+            </div>
+
+            <div class="project-stats">
+              <div class="stat">
+                <span class="material-symbols-outlined">star</span>
+                <span>0</span>
+              </div>
+              <div class="stat">
+                <span class="material-symbols-outlined">fork_right</span>
+                <span>0</span>
+              </div>
+              <div class="stat">
+                <span class="material-symbols-outlined">code</span>
+                <span>JS</span>
+              </div>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://github.com/noahbds/crunchyroll-random-anime"
+                target="_blank"
+                rel="noopener"
+                class="btn-primary">
+                <span class="material-symbols-outlined">code</span>
+                View Code
+              </a>
+              <a
+                href="https://addons.mozilla.org/en-GB/firefox/addon/crunchyroll-random-button"
+                target="_blank"
+                rel="noopener"
+                class="btn-secondary">
+                <span class="material-symbols-outlined">download</span>
+                Install
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="experience">
-        <h2>Experience</h2>
+        <h2>
+          <span class="material-symbols-outlined">work_history</span> Experience
+        </h2>
 
         <div class="job">
           <h3>McDonald's</h3>
@@ -190,7 +454,7 @@
       </section>
 
       <section id="education">
-        <h2>Education</h2>
+        <h2><span class="material-symbols-outlined">school</span> Education</h2>
 
         <div class="education-item">
           <h3>LETTRE ET SCIENCE HUMAINES - SOCIOLOGIE</h3>
@@ -228,7 +492,9 @@
       </section>
 
       <section id="certifications">
-        <h2>Certifications</h2>
+        <h2>
+          <span class="material-symbols-outlined">verified</span> Certifications
+        </h2>
 
         <div class="certification">
           <h3>Licence 2 Sociologie</h3>
@@ -242,7 +508,9 @@
       </section>
 
       <section id="languages">
-        <h2>Langages</h2>
+        <h2>
+          <span class="material-symbols-outlined">language</span> Languages
+        </h2>
         <div class="language-item">
           <h3>Anglais C1</h3>
         </div>
@@ -252,7 +520,9 @@
       </section>
 
       <section id="interests">
-        <h2>Interests</h2>
+        <h2>
+          <span class="material-symbols-outlined">favorite</span> Interests
+        </h2>
         <ul>
           <li>Informatique</li>
           <li>Sociologie</li>
@@ -262,21 +532,31 @@
       </section>
 
       <section id="contact">
-        <h2>Contact Me</h2>
+        <h2>
+          <span class="material-symbols-outlined">contact_mail</span> Contact Me
+        </h2>
         <form action="https://formspree.io/f/xdkweopw" method="POST">
           <div class="form-group">
-            <label for="name">Name:</label>
+            <label for="name">
+              <span class="material-symbols-outlined">person</span> Name:
+            </label>
             <input type="text" id="name" name="name" required />
           </div>
           <div class="form-group">
-            <label for="email">Email:</label>
+            <label for="email">
+              <span class="material-symbols-outlined">email</span> Email:
+            </label>
             <input type="email" id="email" name="email" required />
           </div>
           <div class="form-group">
-            <label for="message">Message:</label>
+            <label for="message">
+              <span class="material-symbols-outlined">message</span> Message:
+            </label>
             <textarea id="message" name="message" rows="5" required></textarea>
           </div>
-          <button type="submit">Send Email</button>
+          <button type="submit">
+            <span class="material-symbols-outlined">send</span> Send Email
+          </button>
         </form>
       </section>
     </main>
@@ -286,7 +566,7 @@
     </button>
 
     <footer>
-      <p>&copy; 2023 Noah EBLE. All rights reserved.</p>
+      <p>&copy; 2025 Noah EBLE. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
