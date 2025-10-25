@@ -26,17 +26,33 @@
     <title>Digital Resume</title>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <header>
+      <button
+        id="dark-mode-toggle"
+        aria-label="Toggle dark mode"
+        title="Toggle Dark Mode">
+        <span class="material-symbols-outlined">dark_mode</span>
+      </button>
       <div id="profile-section" class="flex-column">
+        <img
+          id="profile-pic"
+          src="icons/profile.jpg"
+          alt="Noah EBLE"
+          width="120"
+          height="120" />
         <h1>Noah EBLE</h1>
+        <p class="hook">
+          Étudiant en cybersécurité — alternance dès Janv. 2026 • Métropole
+          Lilloise
+        </p>
         <p>
           Recherche une alternance : développement informatique dès Janvier 2026
           sur la Métropole Lilloise
         </p>
         <div class="contact-info">
-          <p>12 rue Mateotti, (59800) Lille</p>
           <p>0782472418</p>
-          <p>eblenoah@gmail.com</p>
+          <p>noah.eble@epitech.eu</p>
         </div>
         <div class="social-links flex-row">
           <a
@@ -71,7 +87,20 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
+      <!-- Main navigation for quick section access (keyboard + screen reader friendly) -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul>
+          <li><a href="#summary">Summary</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#languages">Languages</a></li>
+          <li><a href="#interests">Interests</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
       <section id="summary">
         <h2>Summary</h2>
         <p>
@@ -251,6 +280,15 @@
         </form>
       </section>
     </main>
+
+    <button id="scroll-to-top" aria-label="Scroll to top" title="Scroll to Top">
+      <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
+
+    <footer>
+      <p>&copy; 2023 Noah EBLE. All rights reserved.</p>
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>

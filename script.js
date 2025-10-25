@@ -187,12 +187,148 @@
     document.head.appendChild(style);
   };
 
+  const initDarkMode = () => {
+    const toggle = document.getElementById("dark-mode-toggle");
+    const stored = localStorage.getItem("theme");
+    const theme = stored || "light";
+    document.documentElement.setAttribute("data-theme", theme);
+
+    if (!toggle) return;
+    toggle.addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    });
+  };
+
+  const initScrollProgress = () => {
+    if (document.getElementById("scroll-progress")) return;
+    const progressBar = document.createElement("div");
+    progressBar.id = "scroll-progress";
+    progressBar.setAttribute("aria-hidden", "true");
+    progressBar.style.transform = "scaleX(0)";
+    document.body.appendChild(progressBar);
+
+    const updateProgress = () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop || 0;
+      const docHeight = Math.max(
+        0,
+        document.documentElement.scrollHeight - window.innerHeight
+      );
+      const ratio = docHeight > 0 ? scrollTop / docHeight : 0;
+      const clamped = Math.max(0, Math.min(1, ratio));
+      progressBar.style.transform = `scaleX(${clamped})`;
+    };
+
+    updateProgress();
+    window.addEventListener("scroll", throttle(updateProgress, 20));
+    window.addEventListener("resize", debounce(updateProgress, 120));
+  };
+
+  const initScrollToTop = () => {
+    const button = document.getElementById("scroll-to-top");
+    if (!button) return;
+
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        button.classList.add("show");
+        button.setAttribute("aria-hidden", "false");
+      } else {
+        button.classList.remove("show");
+        button.setAttribute("aria-hidden", "true");
+      }
+    };
+
+    window.addEventListener("scroll", throttle(toggleVisibility, 100));
+    toggleVisibility();
+
+    button.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    button.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+  };
+
+  const initFormValidation = () => {
+    const form = document.querySelector("#contact form");
+    if (!form) return;
+    form.addEventListener("submit", (e) => {
+      const name = ((form.name && form.name.value) || "").trim();
+      const email = ((form.email && form.email.value) || "").trim();
+      const message = ((form.message && form.message.value) || "").trim();
+
+      if (!name || !email || !message) {
+        e.preventDefault();
+        alert("Please fill in all fields.");
+      } else if (!/\S+@\S+\.\S+/.test(email)) {
+        e.preventDefault();
+        alert("Please enter a valid email.");
+      }
+    });
+  };
+
+  const initKeyboardNav = () => {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+      }
+    });
+  };
+
+  const initNavHighlight = () => {
+    const navLinks = Array.from(document.querySelectorAll(".main-nav a"));
+    if (!navLinks.length) return;
+
+    const sections = navLinks
+      .map((a) => document.querySelector(a.getAttribute("href")))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.id;
+          const link = document.querySelector(`.main-nav a[href="#${id}"]`);
+          if (!link) return;
+          if (entry.isIntersecting) {
+            navLinks.forEach((l) => l.classList.remove("active"));
+            link.classList.add("active");
+          }
+        });
+      },
+      { threshold: 0.45 }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+
+    document.querySelectorAll(".main-nav a").forEach((a) => {
+      a.addEventListener("click", (e) => {
+        const target = document.querySelector(a.getAttribute("href"));
+        if (target) {
+          setTimeout(
+            () => target.setAttribute("tabindex", "-1") || target.focus(),
+            0
+          );
+        }
+      });
+    });
+  };
+
   const initializeApp = () => {
     addAnimationCSS();
     initSections();
+    initDarkMode();
+    initScrollProgress();
+    initScrollToTop();
+    initFormValidation();
+    initKeyboardNav();
 
     stagger(
-      document.querySelectorAll("#soft-skills li"),
+      document.querySelectorAll("#soft-skills .soft-skill-badges span"),
       300,
       100,
       "slide-in-left"
@@ -211,6 +347,7 @@
     );
 
     initTyping();
+    initNavHighlight();
   };
 
   if (document.readyState === "loading") {
