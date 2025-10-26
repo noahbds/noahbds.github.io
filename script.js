@@ -91,86 +91,6 @@
     });
   };
 
-  const typeWriter = (
-    el,
-    text,
-    { speed = 30, delay = 0, cursor = true, callback } = {}
-  ) => {
-    if (!el) return;
-
-    el.textContent = "";
-    el.style.opacity = "1";
-
-    if (cursor) {
-      el.classList.add("typing-cursor");
-    }
-
-    let i = 0;
-    const type = () => {
-      if (i < text.length) {
-        el.textContent += text[i++];
-        const nextDelay =
-          text[i - 1] === " " ? speed / 2 : speed + Math.random() * speed * 0.2;
-        setTimeout(type, nextDelay);
-      } else {
-        if (cursor) {
-          setTimeout(() => {
-            el.classList.remove("typing-cursor");
-          }, 500);
-        }
-        if (callback) {
-          setTimeout(callback, 200);
-        }
-      }
-    };
-
-    setTimeout(type, delay);
-  };
-
-  const initTyping = () => {
-    const nameEl = document.querySelector("#profile-section h1");
-    const jobEl = document.querySelector("#profile-section p");
-    const summaryEl = document.querySelector("#summary p");
-    if (!nameEl || !jobEl || !summaryEl) return;
-
-    const sequences = [
-      {
-        el: nameEl,
-        text: nameEl.textContent,
-        speed: 40,
-      },
-      {
-        el: jobEl,
-        text: jobEl.textContent,
-        speed: 20,
-        delay: 300,
-      },
-      {
-        el: summaryEl,
-        text: summaryEl.textContent,
-        speed: 15,
-        delay: 500,
-      },
-    ];
-
-    sequences.forEach((seq) => {
-      seq.el.style.opacity = "1";
-      seq.el.textContent = "";
-    });
-
-    const runSequence = (idx = 0) => {
-      if (idx >= sequences.length) return;
-      const s = sequences[idx];
-      typeWriter(s.el, s.text, {
-        speed: s.speed,
-        delay: s.delay || 0,
-        cursor: true,
-        callback: () => runSequence(idx + 1),
-      });
-    };
-    runSequence();
-  };
-
   const addAnimationCSS = () => {
     const style = document.createElement("style");
     style.textContent = `
@@ -447,6 +367,31 @@
 
       observer.observe(card);
 
+      if (
+        card.querySelector(".project-content h3[data-i18n='project3.title']")
+      ) {
+        const isFirefox = navigator.userAgent.toLowerCase().includes("firefox");
+        if (isFirefox) {
+          const description = card.querySelector(".project-description");
+          const installButton = card.querySelector(
+            ".btn-secondary span[data-i18n='projects.install']"
+          );
+          if (description) {
+            description.setAttribute(
+              "data-i18n",
+              "project3.description.firefox"
+            );
+          }
+          if (installButton) {
+            installButton.setAttribute("data-i18n", "projects.install.firefox");
+          }
+          const currentLang = localStorage.getItem("selectedLanguage") || "fr";
+          if (window.languageSwitcher && window.languageSwitcher.loadLanguage) {
+            window.languageSwitcher.loadLanguage(currentLang);
+          }
+        }
+      }
+
       const features = card.querySelectorAll(".feature");
 
       card.addEventListener("mouseenter", () => {
@@ -468,6 +413,23 @@
       const buttons = card.querySelectorAll(".btn-primary, .btn-secondary");
       buttons.forEach((button) => {
         button.addEventListener("click", (e) => {
+          if (
+            button.classList.contains("btn-secondary") &&
+            button.querySelector("span[data-i18n='projects.install']") &&
+            card.querySelector(
+              ".project-content h3[data-i18n='project3.title']"
+            )
+          ) {
+            const isFirefox = navigator.userAgent
+              .toLowerCase()
+              .includes("firefox");
+            if (!isFirefox) {
+              e.preventDefault();
+              window.location.href =
+                "https://greasyfork.org/en/scripts/521056-crunchyroll-random-anime-button";
+              return;
+            }
+          }
           const ripple = document.createElement("span");
           ripple.style.position = "absolute";
           ripple.style.borderRadius = "50%";
@@ -553,7 +515,6 @@
       "fade-in-up"
     );
 
-    initTyping();
     initNavHighlight();
   };
 

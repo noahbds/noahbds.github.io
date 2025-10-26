@@ -214,9 +214,6 @@ header {
   padding: 0.5rem;
   border-radius: 50%;
   transition: background 0.2s ease;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
 }
 
 #dark-mode-toggle:hover {
@@ -334,28 +331,6 @@ section h2 .material-symbols-outlined {
 
 section:hover h2 .material-symbols-outlined {
   transform: scale(1.1) rotate(5deg);
-}
-
-/* ===== TYPING CURSOR ===== */
-.typing-cursor {
-  position: relative;
-  display: inline-block;
-}
-
-.typing-cursor::after {
-  content: "|";
-  color: var(--primary-color);
-  font-weight: 400;
-  animation: caretBlink 1s steps(2) infinite;
-  margin-left: 2px;
-}
-
-.will-type {
-  opacity: 1;
-}
-
-.typing-hidden {
-  visibility: hidden;
 }
 
 /* ===== SECTION ANIMATIONS ===== */

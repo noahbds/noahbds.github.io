@@ -29,11 +29,14 @@
     <link rel="stylesheet" href="css/sections.css" />
     <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="css/responsive.css" />
-    <title>Digital Resume</title>
+    <title>Portfolio - Noah EBLE</title>
+    <script src="lang/en.js"></script>
+    <script src="lang/fr.js"></script>
+    <script src="languageSwitcher.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to main content</a>
+    <a class="skip-link" href="#main" data-i18n="aria.skipToMain"></a>
     <header>
       <button
         id="dark-mode-toggle"
@@ -50,20 +53,23 @@
           height="120"
           loading="lazy" />
         <h1>Noah EBLE</h1>
-        <p class="hook">
-          Étudiant en cybersécurité — alternance dès Janv. 2026 • Métropole
-          Lilloise
-        </p>
-        <p>
-          Recherche une alternance : développement informatique dès Janvier 2026
-          sur la Métropole Lilloise
-        </p>
+        <p class="hook" data-i18n="header.title"></p>
+        <p data-i18n="header.searching"></p>
         <div class="contact-info">
           <p>0782472418</p>
           <p>noah.eble@epitech.eu</p>
-          <a href="cv-noah-eble.pdf" download title="Download CV"
-            >Télécharger CV</a
-          >
+          <a
+            href="cv-noah-eble.pdf"
+            download
+            class="btn-primary btn-download-cv"
+            title="Download CV"
+            data-i18n="header.downloadCV"
+            aria-label="Download CV">
+            <span class="material-symbols-outlined" aria-hidden="true"
+              >download</span
+            >
+            <span data-i18n="header.downloadCV"></span>
+          </a>
         </div>
         <div class="social-links flex-row">
           <a
@@ -101,44 +107,40 @@
     <main id="main">
       <nav class="main-nav" aria-label="Main Navigation">
         <ul>
-          <li><a href="#summary">Summary</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#languages">Languages</a></li>
-          <li><a href="#interests">Interests</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#summary" data-i18n="nav.summary"></a></li>
+          <li><a href="#skills" data-i18n="nav.skills"></a></li>
+          <li><a href="#projects" data-i18n="nav.projects"></a></li>
+          <li>
+            <a href="#experience" data-i18n="nav.experience"></a>
+          </li>
+          <li><a href="#education" data-i18n="nav.education"></a></li>
+          <li>
+            <a href="#certifications" data-i18n="nav.certifications"></a>
+          </li>
+          <li><a href="#languages" data-i18n="nav.languages"></a></li>
+          <li><a href="#interests" data-i18n="nav.interests"></a></li>
+          <li><a href="#contact" data-i18n="nav.contact"></a></li>
         </ul>
       </nav>
       <section id="summary">
-        <h2><span class="material-symbols-outlined">person</span> Summary</h2>
-        <p>
-          Étudiant en année préparatoire au Master of Science à Epitech
-          (Promotion 236 - 2025-2028), je recherche une alternance de 33 mois en
-          cybersécurité (début possible dès janvier 2026). Fort d'un profil
-          atypique combinant trois années d'études en sociologie et la formation
-          technique par projets d'Epitech, je possède une double expertise
-          technique et comportementale précieuse dans un secteur où le facteur
-          humain est critique. Mes expériences chez McDonald's, Debflex et
-          Carrefour Market ont développé mes compétences en gestion de crise,
-          communication et travail sous pression. Rigoureux, adaptable et doté
-          d'un anglais courant, je souhaite contribuer à l'analyse d'incidents,
-          la sensibilisation des utilisateurs et l'audit de vulnérabilités en
-          apportant une vision holistique de la sécurité intégrant les
-          dimensions technologiques et humaines.
-        </p>
+        <h2>
+          <span class="material-symbols-outlined">person</span>
+          <span data-i18n="summary.title"></span>
+        </h2>
+        <p data-i18n="summary.content"></p>
       </section>
 
       <section id="skills">
-        <h2><span class="material-symbols-outlined">code</span> Skills</h2>
+        <h2>
+          <span class="material-symbols-outlined">code</span>
+          <span data-i18n="skills.title"></span>
+        </h2>
 
         <div id="hard-skills">
-          <h3>Hard Skills</h3>
+          <h3 data-i18n="skills.hard"></h3>
 
           <div class="skill-category">
-            <h4>Programmation</h4>
+            <h4 data-i18n="skills.programming"></h4>
             <div class="skill-item">
               <span>Python</span>
               <div class="progress-bar">
@@ -172,42 +174,55 @@
           </div>
 
           <div class="skill-category">
-            <h4>Cybersécurité</h4>
-            <p>Burp Suite, Sécurité réseau, Détection & monitoring</p>
+            <h4 data-i18n="skills.cybersecurity"></h4>
+            <p data-i18n="skills.cybersecurity.desc"></p>
           </div>
 
           <div class="skill-category">
-            <h4>Linux</h4>
-            <p>
-              Administration système, Sécurité sous Linux, Outils de
-              cybersécurité
-            </p>
+            <h4 data-i18n="skills.linux"></h4>
+            <p data-i18n="skills.linux.desc"></p>
           </div>
         </div>
 
         <div id="soft-skills">
-          <h3>Soft Skills</h3>
+          <h3 data-i18n="skills.soft"></h3>
           <div class="soft-skill-badges">
-            <span class="badge">Communication</span>
-            <span class="badge">Travail d'équipe</span>
-            <span class="badge">Résolution de problèmes</span>
-            <span class="badge">Autonomie</span>
-            <span class="badge">Adaptabilité</span>
+            <span class="badge" data-i18n="skills.communication"></span>
+            <span class="badge" data-i18n="skills.teamwork"></span>
+            <span class="badge" data-i18n="skills.problemSolving"></span>
+            <span class="badge" data-i18n="skills.autonomy"></span>
+            <span class="badge" data-i18n="skills.adaptability"></span>
           </div>
         </div>
       </section>
 
       <section id="projects">
-        <h2><span class="material-symbols-outlined">work</span> Projects</h2>
+        <h2>
+          <span class="material-symbols-outlined">work</span>
+          <span data-i18n="projects.title"></span>
+        </h2>
 
         <div class="project-filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="lua">Lua</button>
-          <button class="filter-btn" data-filter="javascript">
-            JavaScript
-          </button>
-          <button class="filter-btn" data-filter="gamedev">Game Dev</button>
-          <button class="filter-btn" data-filter="web">Web</button>
+          <button
+            class="filter-btn active"
+            data-filter="all"
+            data-i18n="projects.filter.all"></button>
+          <button
+            class="filter-btn"
+            data-filter="lua"
+            data-i18n="projects.filter.lua"></button>
+          <button
+            class="filter-btn"
+            data-filter="javascript"
+            data-i18n="projects.filter.javascript"></button>
+          <button
+            class="filter-btn"
+            data-filter="gamedev"
+            data-i18n="projects.filter.gamedev"></button>
+          <button
+            class="filter-btn"
+            data-filter="web"
+            data-i18n="projects.filter.web"></button>
         </div>
 
         <div class="projects-grid">
@@ -217,30 +232,29 @@
                 <span class="material-symbols-outlined">sports_esports</span>
               </div>
               <div class="project-status">
-                <span class="status-badge completed">Completed</span>
+                <span
+                  class="status-badge completed"
+                  data-i18n="projects.status.completed"></span>
               </div>
             </div>
 
             <div class="project-content">
-              <h3>Rareload - Garry's Mod Addon</h3>
-              <p class="project-description">
-                A comprehensive Garry's Mod addon that allows players to save
-                and restore their position, inventory, ammo, health, and armor
-                after reloading or dying. Features an advanced anti-stuck system
-                and more.
-              </p>
+              <h3 data-i18n="project1.title"></h3>
+              <p
+                class="project-description"
+                data-i18n="project1.description"></p>
               <div class="project-features">
                 <div class="feature">
                   <span class="material-symbols-outlined">check_circle</span>
-                  <span>Anti-stuck system</span>
+                  <span data-i18n="project1.feature1"></span>
                 </div>
                 <div class="feature">
                   <span class="material-symbols-outlined">check_circle</span>
-                  <span>Admin permissions</span>
+                  <span data-i18n="project1.feature2"></span>
                 </div>
                 <div class="feature">
                   <span class="material-symbols-outlined">check_circle</span>
-                  <span>Entity viewer</span>
+                  <span data-i18n="project1.feature3"></span>
                 </div>
               </div>
             </div>
@@ -273,7 +287,7 @@
                 rel="noopener"
                 class="btn-primary">
                 <span class="material-symbols-outlined">code</span>
-                View Code
+                <span data-i18n="projects.viewCode"></span>
               </a>
               <a
                 href="https://steamcommunity.com/sharedfiles/filedetails/?id=3172024928"
@@ -281,7 +295,7 @@
                 rel="noopener"
                 class="btn-secondary">
                 <span class="material-symbols-outlined">launch</span>
-                Live Demo
+                <span data-i18n="projects.liveDemo"></span>
               </a>
             </div>
           </div>
@@ -292,31 +306,30 @@
                 <span class="material-symbols-outlined">keyboard</span>
               </div>
               <div class="project-status">
-                <span class="status-badge completed">Completed</span>
+                <span
+                  class="status-badge completed"
+                  data-i18n="projects.status.completed"></span>
               </div>
             </div>
 
             <div class="project-content">
-              <h3>Commands Keybinding</h3>
-              <p class="project-description">
-                A Garry's Mod addon that enables players to bind console
-                commands to keyboard keys for quick access and automation.
-                Simplifies complex command execution with customizable key
-                bindings.
-              </p>
+              <h3 data-i18n="project2.title"></h3>
+              <p
+                class="project-description"
+                data-i18n="project2.description"></p>
 
               <div class="project-features">
                 <div class="feature">
                   <span class="material-symbols-outlined">check_circle</span>
-                  <span>Custom key bindings</span>
+                  <span data-i18n="project2.feature1"></span>
                 </div>
                 <div class="feature">
                   <span class="material-symbols-outlined">check_circle</span>
-                  <span>Console commands</span>
+                  <span data-i18n="project2.feature2"></span>
                 </div>
                 <div class="feature">
                   <span class="material-symbols-outlined">check_circle</span>
-                  <span>Easy configuration</span>
+                  <span data-i18n="project2.feature3"></span>
                 </div>
               </div>
             </div>
@@ -349,7 +362,15 @@
                 rel="noopener"
                 class="btn-primary">
                 <span class="material-symbols-outlined">code</span>
-                View Code
+                <span data-i18n="projects.viewCode"></span>
+              </a>
+              <a
+                href="https://steamcommunity.com/sharedfiles/filedetails/?id=3320421454"
+                target="_blank"
+                rel="noopener"
+                class="btn-secondary">
+                <span class="material-symbols-outlined">launch</span>
+                <span data-i18n="projects.liveDemo"></span>
               </a>
             </div>
           </div>
@@ -360,38 +381,38 @@
                 <span class="material-symbols-outlined">extension</span>
               </div>
               <div class="project-status">
-                <span class="status-badge completed">Completed</span>
+                <span
+                  class="status-badge completed"
+                  data-i18n="projects.status.completed"></span>
               </div>
             </div>
 
             <div class="project-content">
-              <h3>Crunchyroll Random Anime</h3>
-              <p class="project-description">
-                A browser extension for Chrome and Firefox that adds a 'Random
-                Anime' button to the Crunchyroll website, allowing users to
-                discover random anime series with a single click.
-              </p>
+              <h3 data-i18n="project3.title"></h3>
+              <p
+                class="project-description"
+                data-i18n="project3.description"></p>
 
               <div class="project-features">
                 <div class="feature">
                   <span class="material-symbols-outlined">check_circle</span>
-                  <span>Random discovery</span>
+                  <span data-i18n="project3.feature1"></span>
                 </div>
                 <div class="feature">
                   <span class="material-symbols-outlined">check_circle</span>
-                  <span>Cross-browser</span>
+                  <span data-i18n="project3.feature2"></span>
                 </div>
                 <div class="feature">
                   <span class="material-symbols-outlined">check_circle</span>
-                  <span>One-click access</span>
+                  <span data-i18n="project3.feature3"></span>
                 </div>
               </div>
             </div>
 
             <div class="project-tech-stack">
               <span class="tech-badge">JavaScript</span>
-              <span class="tech-badge">Web Ext</span>
-              <span class="tech-badge">Chrome</span>
+              <span class="tech-badge">Userscript</span>
+              <span class="tech-badge">GreasyFork</span>
               <span class="tech-badge">Firefox</span>
             </div>
 
@@ -417,7 +438,7 @@
                 rel="noopener"
                 class="btn-primary">
                 <span class="material-symbols-outlined">code</span>
-                View Code
+                <span data-i18n="projects.viewCode"></span>
               </a>
               <a
                 href="https://addons.mozilla.org/en-GB/firefox/addon/crunchyroll-random-button"
@@ -425,7 +446,7 @@
                 rel="noopener"
                 class="btn-secondary">
                 <span class="material-symbols-outlined">download</span>
-                Install
+                <span data-i18n="projects.install"></span>
               </a>
             </div>
           </div>
@@ -434,74 +455,77 @@
 
       <section id="experience" aria-labelledby="experience-heading">
         <h2 id="experience-heading">
-          <span class="material-symbols-outlined">work_history</span> Experience
+          <span class="material-symbols-outlined">work_history</span>
+          <span data-i18n="experience.title"></span>
         </h2>
 
         <!-- Card-style experience list (distinct from Education timeline) -->
         <ul class="job-list" role="list">
           <li class="job-card" role="listitem">
             <div class="job-meta">
-              <p class="job-period">Juillet 2025 — Août 2025</p>
+              <p
+                class="job-period"
+                data-i18n="experience.mcdonalds.2025.period"></p>
               <p class="job-location">Saint-Valery-sur-Somme</p>
             </div>
             <div class="job-body">
               <h3>McDonald's</h3>
-              <h4 class="job-role">
-                EQUIPIER POLYVALENT DE RESTAURATION RAPIDE
-              </h4>
+              <h4 class="job-role" data-i18n="experience.mcdonalds.role"></h4>
               <ul class="job-bullets">
-                <li>Gestion du service client et prise de commandes rapide.</li>
-                <li>
-                  Respect des consignes d'hygiène et sécurité alimentaire.
-                </li>
-                <li>Travail en équipe, suivi de planning et polyvalence.</li>
+                <li data-i18n="experience.mcdonalds.desc1"></li>
+                <li data-i18n="experience.mcdonalds.desc2"></li>
+                <li data-i18n="experience.mcdonalds.desc3"></li>
               </ul>
             </div>
           </li>
 
           <li class="job-card" role="listitem">
             <div class="job-meta">
-              <p class="job-period">Juillet 2024 — Août 2024</p>
+              <p
+                class="job-period"
+                data-i18n="experience.carrefour.2024.period"></p>
               <p class="job-location">Boismont</p>
             </div>
             <div class="job-body">
               <h3>Carrefour Market BOISMONT</h3>
-              <h4 class="job-role">EMPLOYÉ POLYVALENT</h4>
+              <h4 class="job-role" data-i18n="experience.carrefour.role"></h4>
               <ul class="job-bullets">
-                <li>Mise en rayon et logistique, gestion des stocks.</li>
-                <li>Accueil client et encaissement.</li>
-                <li>Animation d'équipe sur les temps forts commerciaux.</li>
+                <li data-i18n="experience.carrefour.desc1"></li>
+                <li data-i18n="experience.carrefour.desc2"></li>
+                <li data-i18n="experience.carrefour.desc3"></li>
               </ul>
             </div>
           </li>
 
           <li class="job-card" role="listitem">
             <div class="job-meta">
-              <p class="job-period">Mai 2023 — Juillet 2023</p>
+              <p
+                class="job-period"
+                data-i18n="experience.debflex.2023.period"></p>
               <p class="job-location">Feuquières-en-Vimeu</p>
             </div>
             <div class="job-body">
               <h3>Debflex</h3>
-              <h4 class="job-role">OPÉRATEUR POLYVALENT</h4>
+              <h4 class="job-role" data-i18n="experience.debflex.role"></h4>
               <ul class="job-bullets">
-                <li>Opérations de production et contrôle qualité.</li>
-                <li>Respect des cadences et optimisation des flux.</li>
+                <li data-i18n="experience.debflex.desc1"></li>
+                <li data-i18n="experience.debflex.desc2"></li>
               </ul>
             </div>
           </li>
 
           <li class="job-card" role="listitem">
             <div class="job-meta">
-              <p class="job-period">Mai 2022 — Juillet 2022</p>
+              <p
+                class="job-period"
+                data-i18n="experience.mcdonalds.2022.period"></p>
               <p class="job-location">Saint-Valery-sur-Somme</p>
             </div>
             <div class="job-body">
               <h3>McDonald's</h3>
-              <h4 class="job-role">
-                EQUIPIER POLYVALENT DE RESTAURATION RAPIDE
-              </h4>
+              <h4 class="job-role" data-i18n="experience.mcdonalds.role"></h4>
               <ul class="job-bullets">
-                <li>Formation des nouveaux équipiers, gestion du rush.</li>
+                <li data-i18n="experience.mcdonalds.desc4"></li>
               </ul>
             </div>
           </li>
@@ -510,133 +534,135 @@
 
       <section id="education" aria-labelledby="education-heading">
         <h2 id="education-heading">
-          <span class="material-symbols-outlined">school</span> Education
+          <span class="material-symbols-outlined">school</span>
+          <span data-i18n="education.title"></span>
         </h2>
 
         <!-- Timeline-style education list for better scannability -->
         <ul class="education-list" role="list">
           <li class="education-item" role="listitem">
             <header class="edu-header">
-              <h3>LETTRE ET SCIENCE HUMAINES - SOCIOLOGIE</h3>
-              <h4>LICENCE 3</h4>
+              <h3 data-i18n="education.l3.title"></h3>
+              <h4 data-i18n="education.l3.degree"></h4>
             </header>
-            <p class="education-period">Septembre 2024 — Juillet 2025</p>
-            <p class="education-institution">
-              Université Picardie Jules Verne, Amiens
-            </p>
-            <p class="education-desc">
-              Cours majeurs : Méthodologie en sciences sociales, Analyse
-              quantitative.
-            </p>
+            <p class="education-period" data-i18n="education.l3.period"></p>
+            <p
+              class="education-institution"
+              data-i18n="education.l3.institution"></p>
+            <p class="education-desc" data-i18n="education.l3.desc"></p>
           </li>
 
           <li class="education-item" role="listitem">
             <header class="edu-header">
-              <h3>LETTRE ET SCIENCES HUMAINES - SOCIOLOGIE</h3>
-              <h4>LICENCE 2</h4>
+              <h3 data-i18n="education.l2.title"></h3>
+              <h4 data-i18n="education.l2.degree"></h4>
             </header>
-            <p class="education-period">Septembre 2023 — Juillet 2024</p>
-            <p class="education-institution">
-              Université Paris Cité, Paris 13ème
-            </p>
-            <p class="education-desc">
-              Travaux dirigés en méthodes qualitatives, sociologie politique.
-            </p>
+            <p class="education-period" data-i18n="education.l2.period"></p>
+            <p
+              class="education-institution"
+              data-i18n="education.l2.institution"></p>
+            <p class="education-desc" data-i18n="education.l2.desc"></p>
           </li>
 
           <li class="education-item" role="listitem">
             <header class="edu-header">
-              <h3>LETTRE ET SCIENCES HUMAINES - SOCIOLOGIE</h3>
-              <h4>LICENCE 1</h4>
+              <h3 data-i18n="education.l1.title"></h3>
+              <h4 data-i18n="education.l1.degree"></h4>
             </header>
-            <p class="education-period">Septembre 2022 — Juillet 2023</p>
-            <p class="education-institution">
-              Université Paris Cité, Paris 13ème
-            </p>
-            <p class="education-desc">
-              Initiation à la sociologie, travaux dirigés en littérature.
-            </p>
+            <p class="education-period" data-i18n="education.l1.period"></p>
+            <p
+              class="education-institution"
+              data-i18n="education.l1.institution"></p>
+            <p class="education-desc" data-i18n="education.l1.desc"></p>
           </li>
 
           <li class="education-item" role="listitem">
             <header class="edu-header">
-              <h3>LEA ANGLAIS - CHINOIS</h3>
-              <h4>LICENCE 1</h4>
+              <h3 data-i18n="education.lea.title"></h3>
+              <h4 data-i18n="education.lea.degree"></h4>
             </header>
-            <p class="education-period">Septembre 2021 — Juillet 2022</p>
-            <p class="education-institution">Université Paris Nanterre</p>
-            <p class="education-desc">
-              Cours de langues et introduction aux études interculturelles.
-            </p>
+            <p class="education-period" data-i18n="education.lea.period"></p>
+            <p
+              class="education-institution"
+              data-i18n="education.lea.institution"></p>
+            <p class="education-desc" data-i18n="education.lea.desc"></p>
           </li>
         </ul>
       </section>
 
       <section id="certifications">
         <h2>
-          <span class="material-symbols-outlined">verified</span> Certifications
+          <span class="material-symbols-outlined">verified</span>
+          <span data-i18n="certifications.title"></span>
         </h2>
 
         <div class="certification">
-          <h3>Licence 2 Sociologie</h3>
-          <p>Juillet 2024</p>
+          <h3 data-i18n="certifications.l2"></h3>
+          <p data-i18n="certifications.l2.date"></p>
         </div>
 
         <div class="certification">
-          <h3>Baccalauréat Général</h3>
-          <p>Juillet 2021</p>
+          <h3 data-i18n="certifications.bac"></h3>
+          <p data-i18n="certifications.bac.date"></p>
         </div>
       </section>
 
       <section id="languages">
         <h2>
-          <span class="material-symbols-outlined">language</span> Languages
+          <span class="material-symbols-outlined">language</span>
+          <span data-i18n="languages.title"></span>
         </h2>
         <div class="language-item">
-          <h3>Anglais C1</h3>
+          <h3 data-i18n="languages.english"></h3>
         </div>
         <div class="language-item">
-          <h3>Français Natif</h3>
+          <h3 data-i18n="languages.french"></h3>
         </div>
       </section>
 
       <section id="interests">
         <h2>
-          <span class="material-symbols-outlined">favorite</span> Interests
+          <span class="material-symbols-outlined">favorite</span>
+          <span data-i18n="interests.title"></span>
         </h2>
         <ul>
-          <li>Informatique</li>
-          <li>Sociologie</li>
-          <li>Psychologie</li>
-          <li>Web</li>
+          <li data-i18n="interests.it"></li>
+          <li data-i18n="interests.sociology"></li>
+          <li data-i18n="interests.psychology"></li>
+          <li data-i18n="interests.web"></li>
         </ul>
       </section>
 
       <section id="contact">
         <h2>
-          <span class="material-symbols-outlined">contact_mail</span> Contact Me
+          <span class="material-symbols-outlined">contact_mail</span>
+          <span data-i18n="contact.title"></span>
         </h2>
         <form action="https://formspree.io/f/xdkweopw" method="POST">
           <div class="form-group">
             <label for="name">
-              <span class="material-symbols-outlined">person</span> Name:
+              <span class="material-symbols-outlined">person</span>
+              <span data-i18n="contact.name"></span>
             </label>
             <input type="text" id="name" name="name" required />
           </div>
           <div class="form-group">
             <label for="email">
-              <span class="material-symbols-outlined">email</span> Email:
+              <span class="material-symbols-outlined">email</span>
+              <span data-i18n="contact.email"></span>
             </label>
             <input type="email" id="email" name="email" required />
           </div>
           <div class="form-group">
             <label for="message">
-              <span class="material-symbols-outlined">message</span> Message:
+              <span class="material-symbols-outlined">message</span>
+              <span data-i18n="contact.message"></span>
             </label>
             <textarea id="message" name="message" rows="5" required></textarea>
           </div>
           <button type="submit">
-            <span class="material-symbols-outlined">send</span> Send Email
+            <span class="material-symbols-outlined">send</span>
+            <span data-i18n="contact.send"></span>
           </button>
         </form>
       </section>
@@ -647,7 +673,10 @@
     </button>
 
     <footer>
-      <p>&copy; 2025 Noah EBLE. All rights reserved.</p>
+      <p>
+        &copy; 2025 Noah EBLE.
+        <span data-i18n="footer.rights"></span>
+      </p>
     </footer>
 
     <script src="script.js"></script>

@@ -38,6 +38,32 @@
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
+.btn-download-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 25px;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: var(--shadow-light);
+  border: none;
+  transition: all var(--animation-speed) ease;
+}
+.btn-download-cv:hover {
+  background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+  box-shadow: var(--shadow-medium);
+  color: white;
+  transform: translateY(-2px);
+}
+.btn-download-cv .material-symbols-outlined {
+  font-size: 20px;
+  color: white;
+}
+
 .social-links img.icon {
   display: block;
   width: 20px;
@@ -171,6 +197,50 @@
   );
   color: var(--text-light);
   box-shadow: var(--shadow-medium);
+}
+
+/* ===== LANGUAGE SWITCHER ===== */
+#language-switcher {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lang-btn {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all var(--animation-speed) ease;
+  min-width: 40px;
+  text-align: center;
+}
+
+.lang-btn:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.lang-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .lang-btn {
+  background: var(--bg-dark-secondary);
+  color: var(--text-light);
+  border-color: var(--border-dark);
+}
+
+[data-theme="dark"] .lang-btn:hover,
+[data-theme="dark"] .lang-btn.active {
+  background: var(--primary-color);
+  color: white;
 }
 
 /* ===== PERFORMANCE OPTIMIZATIONS ===== */
