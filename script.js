@@ -195,17 +195,74 @@
 
   const initDarkMode = () => {
     const toggle = document.getElementById("dark-mode-toggle");
+    if (!toggle) {
+      console.warn("Dark mode toggle button not found");
+      return;
+    }
+
     const stored = localStorage.getItem("theme");
     const theme = stored || "light";
+
     document.documentElement.setAttribute("data-theme", theme);
 
-    if (!toggle) return;
-    toggle.addEventListener("click", () => {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      const newTheme = currentTheme === "light" ? "dark" : "light";
+    toggle.setAttribute("type", "button");
+
+    let iconEl = toggle.querySelector(".material-symbols-outlined");
+    if (!iconEl) iconEl = toggle.firstElementChild;
+
+    const updateButtonUI = (t) => {
+      const isDark = t === "dark";
+      if (iconEl) {
+        iconEl.textContent = isDark ? "light_mode" : "dark_mode";
+      }
+      toggle.setAttribute("aria-pressed", String(isDark));
+      toggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light mode" : "Switch to dark mode"
+      );
+      toggle.title = isDark ? "Switch to light mode" : "Switch to dark mode";
+    };
+
+    updateButtonUI(theme);
+
+    const setTheme = (newTheme) => {
       document.documentElement.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
+      try {
+        localStorage.setItem("theme", newTheme);
+      } catch (err) {
+        console.debug("Could not write theme to localStorage:", err);
+      }
+      updateButtonUI(newTheme);
+      console.log(`Theme switched to: ${newTheme}`);
+    };
+
+    const handleToggle = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const currentTheme =
+        document.documentElement.getAttribute("data-theme") || "light";
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      setTheme(newTheme);
+    };
+
+    const newToggle = toggle.cloneNode(true);
+    toggle.parentNode.replaceChild(newToggle, toggle);
+
+    iconEl = newToggle.querySelector(".material-symbols-outlined");
+    if (!iconEl) iconEl = newToggle.firstElementChild;
+
+    updateButtonUI(theme);
+
+    newToggle.addEventListener("click", handleToggle);
+
+    newToggle.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " " || e.code === "Space") {
+        handleToggle(e);
+      }
     });
+
+    console.log("Dark mode initialized successfully");
   };
 
   const initScrollProgress = () => {
@@ -390,7 +447,6 @@
 
       observer.observe(card);
 
-      const projectIcon = card.querySelector(".project-icon");
       const features = card.querySelectorAll(".feature");
 
       card.addEventListener("mouseenter", () => {
@@ -438,6 +494,35 @@
     });
   };
 
+  const initSkillProgress = () => {
+    const skillsSection = document.getElementById("skills");
+    if (!skillsSection) return;
+
+    const fills = Array.from(skillsSection.querySelectorAll(".progress-fill"));
+    if (!fills.length) return;
+
+    fills.forEach((f) => {
+      f.style.width = "0%";
+    });
+
+    const obs = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            fills.forEach((f) => {
+              const target = f.dataset.width || "0%";
+              f.style.width = target;
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    obs.observe(skillsSection);
+  };
+
   const initializeApp = () => {
     addAnimationCSS();
     initSections();
@@ -447,6 +532,7 @@
     initFormValidation();
     initKeyboardNav();
     initProjectCards();
+    initSkillProgress();
 
     stagger(
       document.querySelectorAll("#soft-skills .soft-skill-badges span"),

@@ -6,24 +6,31 @@
     <base href="/" />
     <link
       rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap&font-display=swap"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'" />
     <link
       rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&font-display=swap"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap&font-display=swap"
         rel="stylesheet" />
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&font-display=swap" />
     </noscript>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/skills.css" />
+    <link rel="stylesheet" href="css/projects.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
     <title>Digital Resume</title>
+    <script src="script.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -40,7 +47,8 @@
           src="icons/profile.jpg"
           alt="Noah EBLE"
           width="120"
-          height="120" />
+          height="120"
+          loading="lazy" />
         <h1>Noah EBLE</h1>
         <p class="hook">
           Étudiant en cybersécurité — alternance dès Janv. 2026 • Métropole
@@ -134,25 +142,31 @@
             <div class="skill-item">
               <span>Python</span>
               <div class="progress-bar">
-                <div class="progress-fill" style="width: 85%"></div>
+                <div class="progress-fill" data-width="85%"></div>
               </div>
             </div>
             <div class="skill-item">
               <span>Lua</span>
               <div class="progress-bar">
-                <div class="progress-fill" style="width: 90%"></div>
+                <div class="progress-fill" data-width="90%"></div>
               </div>
             </div>
             <div class="skill-item">
               <span>HTML/CSS</span>
               <div class="progress-bar">
-                <div class="progress-fill" style="width: 80%"></div>
+                <div class="progress-fill" data-width="80%"></div>
               </div>
             </div>
             <div class="skill-item">
               <span>JavaScript</span>
               <div class="progress-bar">
-                <div class="progress-fill" style="width: 75%"></div>
+                <div class="progress-fill" data-width="75%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span>Java</span>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="19%"></div>
               </div>
             </div>
           </div>
@@ -213,9 +227,8 @@
                 A comprehensive Garry's Mod addon that allows players to save
                 and restore their position, inventory, ammo, health, and armor
                 after reloading or dying. Features an advanced anti-stuck system
-                with multiple resolution methods.
+                and more.
               </p>
-
               <div class="project-features">
                 <div class="feature">
                   <span class="material-symbols-outlined">check_circle</span>

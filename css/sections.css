@@ -442,6 +442,33 @@ button[type="submit"]:active {
   color: var(--text-light);
 }
 
+[data-theme="dark"] #profile-section,
+[data-theme="dark"] #summary,
+[data-theme="dark"] #skills,
+[data-theme="dark"] #experience,
+[data-theme="dark"] #education,
+[data-theme="dark"] #certifications,
+[data-theme="dark"] #languages,
+[data-theme="dark"] #interests,
+[data-theme="dark"] #contact p,
+[data-theme="dark"] #skills span {
+  color: var(--text-light);
+}
+
+[data-theme="dark"] .project-features span,
+[data-theme="dark"] .stat span,
+[data-theme="dark"] .material-symbols-outlined,
+[data-theme="dark"] footer p {
+  color: var(--text-light);
+}
+[data-theme="dark"] .job-body h4,
+[data-theme="dark"] .job-role,
+[data-theme="dark"] .education-period,
+[data-theme="dark"] .language-item h3,
+[data-theme="dark"] .form-group label {
+  color: var(--text-light);
+}
+
 [data-theme="dark"] .form-group input:focus,
 [data-theme="dark"] .form-group textarea:focus {
   border-color: var(--primary-color);
