@@ -419,76 +419,144 @@
         </div>
       </section>
 
-      <section id="experience">
-        <h2>
+      <section id="experience" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">
           <span class="material-symbols-outlined">work_history</span> Experience
         </h2>
 
-        <div class="job">
-          <h3>McDonald's</h3>
-          <h4>EQUIPIER POLYVALENT DE RESTAURATION RAPIDE</h4>
-          <p class="job-period">Juillet 2025 - Août 2025</p>
-          <p class="job-location">Saint-Valery-sur-Somme</p>
-        </div>
+        <!-- Card-style experience list (distinct from Education timeline) -->
+        <ul class="job-list" role="list">
+          <li class="job-card" role="listitem">
+            <div class="job-meta">
+              <p class="job-period">Juillet 2025 — Août 2025</p>
+              <p class="job-location">Saint-Valery-sur-Somme</p>
+            </div>
+            <div class="job-body">
+              <h3>McDonald's</h3>
+              <h4 class="job-role">
+                EQUIPIER POLYVALENT DE RESTAURATION RAPIDE
+              </h4>
+              <ul class="job-bullets">
+                <li>Gestion du service client et prise de commandes rapide.</li>
+                <li>
+                  Respect des consignes d'hygiène et sécurité alimentaire.
+                </li>
+                <li>Travail en équipe, suivi de planning et polyvalence.</li>
+              </ul>
+            </div>
+          </li>
 
-        <div class="job">
-          <h3>Carrefour Market BOISMONT</h3>
-          <h4>EMPLOYÉ POLYVALENT</h4>
-          <p class="job-period">Juillet 2024 - Août 2024</p>
-          <p class="job-location">Boismont</p>
-        </div>
+          <li class="job-card" role="listitem">
+            <div class="job-meta">
+              <p class="job-period">Juillet 2024 — Août 2024</p>
+              <p class="job-location">Boismont</p>
+            </div>
+            <div class="job-body">
+              <h3>Carrefour Market BOISMONT</h3>
+              <h4 class="job-role">EMPLOYÉ POLYVALENT</h4>
+              <ul class="job-bullets">
+                <li>Mise en rayon et logistique, gestion des stocks.</li>
+                <li>Accueil client et encaissement.</li>
+                <li>Animation d'équipe sur les temps forts commerciaux.</li>
+              </ul>
+            </div>
+          </li>
 
-        <div class="job">
-          <h3>Debflex</h3>
-          <h4>OPÉRATEUR POLYVALENT</h4>
-          <p class="job-period">Mai 2023 - Juillet 2023</p>
-          <p class="job-location">Feuquières-en-Vimeu</p>
-        </div>
+          <li class="job-card" role="listitem">
+            <div class="job-meta">
+              <p class="job-period">Mai 2023 — Juillet 2023</p>
+              <p class="job-location">Feuquières-en-Vimeu</p>
+            </div>
+            <div class="job-body">
+              <h3>Debflex</h3>
+              <h4 class="job-role">OPÉRATEUR POLYVALENT</h4>
+              <ul class="job-bullets">
+                <li>Opérations de production et contrôle qualité.</li>
+                <li>Respect des cadences et optimisation des flux.</li>
+              </ul>
+            </div>
+          </li>
 
-        <div class="job">
-          <h3>McDonald's</h3>
-          <h4>EQUIPIER POLYVALENT DE RESTAURATION RAPIDE</h4>
-          <p class="job-period">Mai 2022 - Juillet 2022</p>
-          <p class="job-location">Saint-Valery-sur-Somme</p>
-        </div>
+          <li class="job-card" role="listitem">
+            <div class="job-meta">
+              <p class="job-period">Mai 2022 — Juillet 2022</p>
+              <p class="job-location">Saint-Valery-sur-Somme</p>
+            </div>
+            <div class="job-body">
+              <h3>McDonald's</h3>
+              <h4 class="job-role">
+                EQUIPIER POLYVALENT DE RESTAURATION RAPIDE
+              </h4>
+              <ul class="job-bullets">
+                <li>Formation des nouveaux équipiers, gestion du rush.</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
       </section>
 
-      <section id="education">
-        <h2><span class="material-symbols-outlined">school</span> Education</h2>
+      <section id="education" aria-labelledby="education-heading">
+        <h2 id="education-heading">
+          <span class="material-symbols-outlined">school</span> Education
+        </h2>
 
-        <div class="education-item">
-          <h3>LETTRE ET SCIENCE HUMAINES - SOCIOLOGIE</h3>
-          <h4>LICENCE 3</h4>
-          <p class="education-period">Septembre 2024 - Juillet 2025</p>
-          <p class="education-institution">
-            Université Picardie Jules Verne, Amiens
-          </p>
-        </div>
+        <!-- Timeline-style education list for better scannability -->
+        <ul class="education-list" role="list">
+          <li class="education-item" role="listitem">
+            <header class="edu-header">
+              <h3>LETTRE ET SCIENCE HUMAINES - SOCIOLOGIE</h3>
+              <h4>LICENCE 3</h4>
+            </header>
+            <p class="education-period">Septembre 2024 — Juillet 2025</p>
+            <p class="education-institution">
+              Université Picardie Jules Verne, Amiens
+            </p>
+            <p class="education-desc">
+              Cours majeurs : Méthodologie en sciences sociales, Analyse
+              quantitative.
+            </p>
+          </li>
 
-        <div class="education-item">
-          <h3>LETTRE ET SCIENCES HUMAINES - SOCIOLOGIE</h3>
-          <h4>LICENCE 2</h4>
-          <p class="education-period">Septembre 2023 - Juillet 2024</p>
-          <p class="education-institution">
-            Université Paris Cité, Paris 13ème
-          </p>
-        </div>
+          <li class="education-item" role="listitem">
+            <header class="edu-header">
+              <h3>LETTRE ET SCIENCES HUMAINES - SOCIOLOGIE</h3>
+              <h4>LICENCE 2</h4>
+            </header>
+            <p class="education-period">Septembre 2023 — Juillet 2024</p>
+            <p class="education-institution">
+              Université Paris Cité, Paris 13ème
+            </p>
+            <p class="education-desc">
+              Travaux dirigés en méthodes qualitatives, sociologie politique.
+            </p>
+          </li>
 
-        <div class="education-item">
-          <h3>LETTRE ET SCIENCES HUMAINES - SOCIOLOGIE</h3>
-          <h4>LICENCE 1</h4>
-          <p class="education-period">Septembre 2022 - Juillet 2023</p>
-          <p class="education-institution">
-            Université Paris Cité, Paris 13ème
-          </p>
-        </div>
+          <li class="education-item" role="listitem">
+            <header class="edu-header">
+              <h3>LETTRE ET SCIENCES HUMAINES - SOCIOLOGIE</h3>
+              <h4>LICENCE 1</h4>
+            </header>
+            <p class="education-period">Septembre 2022 — Juillet 2023</p>
+            <p class="education-institution">
+              Université Paris Cité, Paris 13ème
+            </p>
+            <p class="education-desc">
+              Initiation à la sociologie, travaux dirigés en littérature.
+            </p>
+          </li>
 
-        <div class="education-item">
-          <h3>LEA ANGLAIS - CHINOIS</h3>
-          <h4>LICENCE 1</h4>
-          <p class="education-period">Septembre 2021 - Juillet 2022</p>
-          <p class="education-institution">Université Paris Nanterre</p>
-        </div>
+          <li class="education-item" role="listitem">
+            <header class="edu-header">
+              <h3>LEA ANGLAIS - CHINOIS</h3>
+              <h4>LICENCE 1</h4>
+            </header>
+            <p class="education-period">Septembre 2021 — Juillet 2022</p>
+            <p class="education-institution">Université Paris Nanterre</p>
+            <p class="education-desc">
+              Cours de langues et introduction aux études interculturelles.
+            </p>
+          </li>
+        </ul>
       </section>
 
       <section id="certifications">

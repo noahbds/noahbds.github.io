@@ -119,6 +119,16 @@
     gap: 0.5rem;
   }
 
+  /* Make education timeline collapse to stacked cards on tablet */
+  .education-list {
+    padding-left: 0.5rem;
+  }
+
+  .education-list::before,
+  .education-item::before {
+    display: none;
+  }
+
   .progress-bar {
     width: 100%;
     margin-left: 0;
@@ -130,6 +140,27 @@
 
   .social-links {
     justify-content: center;
+  }
+}
+
+/* Responsive rules for experience cards */
+@media (max-width: 768px) {
+  .job-card {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .job-meta {
+    flex: none;
+    min-width: auto;
+    flex-direction: row;
+    gap: 0.75rem;
+    align-items: baseline;
+    font-size: 0.95rem;
+  }
+
+  .job-meta .job-period {
+    font-weight: 600;
   }
 }
 
@@ -162,7 +193,9 @@
   }
 
   .main-nav ul {
-    grid-template-columns: repeat(3, 1fr);
+    /* Use a responsive grid so nav items wrap cleanly on small screens */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     gap: 0.5rem;
   }
 
@@ -174,6 +207,41 @@
   .education-item,
   .project {
     padding: 1rem;
+  }
+
+  /* Improve projects layout on narrow screens */
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .project-card {
+    padding: 0.5rem 0.5rem 0.75rem;
+  }
+
+  .project-header {
+    padding: 1rem 1rem 0.5rem;
+  }
+
+  .project-content {
+    padding: 0 1rem 0.75rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  /* Mobile: stacked education items without timeline decorations */
+  .education-list {
+    padding-left: 0.5rem;
+  }
+
+  .education-list::before,
+  .education-item::before {
+    display: none;
   }
 
   .soft-skill-badges {
