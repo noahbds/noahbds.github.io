@@ -94,7 +94,7 @@
   const typeWriter = (
     el,
     text,
-    { speed = 60, delay = 0, cursor = true, callback } = {}
+    { speed = 30, delay = 0, cursor = true, callback } = {}
   ) => {
     if (!el) return;
 
@@ -137,19 +137,19 @@
       {
         el: nameEl,
         text: nameEl.textContent,
-        speed: 80,
+        speed: 40,
       },
       {
         el: jobEl,
         text: jobEl.textContent,
-        speed: 40,
-        delay: 500,
+        speed: 20,
+        delay: 300,
       },
       {
         el: summaryEl,
         text: summaryEl.textContent,
-        speed: 30,
-        delay: 800,
+        speed: 15,
+        delay: 500,
       },
     ];
 

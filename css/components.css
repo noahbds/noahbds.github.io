@@ -18,10 +18,17 @@
 .education-item:hover h3,
 .certification:hover h3,
 .skill-category:hover h4 {
+  -webkit-text-fill-color: initial;
+  color: initial;
+}
+
+[data-theme="dark"] .job:hover h3,
+[data-theme="dark"] .education-item:hover h3,
+[data-theme="dark"] .certification:hover h3,
+[data-theme="dark"] .skill-category:hover h4 {
   -webkit-text-fill-color: var(--text-light);
   color: var(--text-light);
 }
-
 /* ===== ICON STYLES ===== */
 .icon {
   width: 24px;

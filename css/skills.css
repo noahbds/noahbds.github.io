@@ -112,3 +112,12 @@
   );
   animation: shimmer 2s infinite;
 }
+
+/* ===== DARK MODE ===== */
+[data-theme="dark"] .skill-category {
+  background: rgba(31, 41, 55, 0.6);
+}
+
+[data-theme="dark"] .soft-skill-badges {
+  background: rgba(31, 41, 55, 0.6);
+}

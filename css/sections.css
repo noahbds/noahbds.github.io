@@ -398,3 +398,57 @@ button[type="submit"]:hover {
 button[type="submit"]:active {
   transform: translateY(0);
 }
+
+/* ===== DARK MODE ===== */
+[data-theme="dark"] .job {
+  background: rgba(31, 41, 55, 0.6);
+}
+
+[data-theme="dark"] .job-card {
+  background: rgba(31, 41, 55, 0.6);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .education-item {
+  background: rgba(31, 41, 55, 0.6);
+}
+
+[data-theme="dark"] .certification {
+  background: rgba(31, 41, 55, 0.6);
+}
+
+[data-theme="dark"] .language-item {
+  background: rgba(31, 41, 55, 0.6);
+}
+
+[data-theme="dark"] .interest-item {
+  background: rgba(31, 41, 55, 0.6);
+}
+
+[data-theme="dark"] .contact-item {
+  background: rgba(31, 41, 55, 0.6);
+}
+
+/* ===== DARK MODE BORDER ===== */
+[data-theme="dark"] .job-card {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== DARK MODE FORM ===== */
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea {
+  background: rgba(31, 41, 55, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-light);
+}
+
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+[data-theme="dark"] .form-group input::placeholder,
+[data-theme="dark"] .form-group textarea::placeholder {
+  color: var(--text-muted);
+}

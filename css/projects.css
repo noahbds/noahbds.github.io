@@ -315,3 +315,26 @@
 .btn-secondary .material-symbols-outlined {
   font-size: 16px;
 }
+
+/* ===== DARK MODE ===== */
+[data-theme="dark"] .filter-btn {
+  background: rgba(31, 41, 55, 0.8);
+  color: var(--text-light);
+  border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .filter-btn:hover,
+[data-theme="dark"] .filter-btn.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+[data-theme="dark"] .btn-secondary {
+  background: rgba(31, 41, 55, 0.9);
+  color: var(--text-light);
+}
+
+/* ===== DARK MODE BORDER ===== */
+[data-theme="dark"] .project-card {
+  border-color: rgba(255, 255, 255, 0.1);
+}
