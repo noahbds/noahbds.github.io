@@ -45,6 +45,29 @@
     gap: 1rem;
     align-items: flex-start;
   }
+
+  .main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    justify-content: center;
+  }
+
+  .main-nav li {
+    /* Prevent nav items from stretching to equal widths on small screens */
+    flex: 0 0 auto;
+    min-width: auto;
+  }
+
+  .main-nav a {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    /* Allow horizontal scrolling instead of truncating by default */
+    overflow: visible;
+    text-overflow: clip;
+    display: inline-block;
+  }
 }
 
 /* Telephones Portables */
@@ -119,6 +142,27 @@
     flex-direction: row;
     gap: 0.75rem;
     align-items: baseline;
+  }
+
+  .main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    justify-content: center;
+  }
+
+  .main-nav li {
+    flex: 0 0 auto;
+    min-width: auto;
+  }
+
+  .main-nav a {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+    display: inline-block;
   }
 }
 
@@ -244,16 +288,17 @@
   }
 
   .main-nav li {
-    flex: 1;
-    min-width: 0;
+    flex: 0 0 auto;
+    min-width: auto;
   }
 
   .main-nav a {
     padding: 0.5rem 0.25rem;
     font-size: 0.8rem;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
+    text-overflow: clip;
+    display: inline-block;
   }
 
   .skill-item {
@@ -313,6 +358,9 @@
   .main-nav a {
     font-size: 0.75rem;
     padding: 0.4rem 0.2rem;
+    overflow: visible;
+    text-overflow: clip;
+    display: inline-block;
   }
 
   .project-content h3 {
